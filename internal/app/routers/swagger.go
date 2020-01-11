@@ -10,8 +10,8 @@ Package routers 生成swagger文档
 package routers
 
 // @title GinAdmin
-// @version 5.2.1
-// @description RBAC scaffolding based on Gin + Gorm + Casbin + Dig.
+// @version v1.0.0-core
+// @description RBAC scaffolding based on Gin + Gorm + Dig.
 // @schemes http https
 // @host 127.0.0.1:10088
 // @basePath /

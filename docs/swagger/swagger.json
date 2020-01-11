@@ -5,14 +5,14 @@
     ],
     "swagger": "2.0",
     "info": {
-        "description": "RBAC scaffolding based on Gin + Gorm + Casbin + Dig.",
+        "description": "RBAC scaffolding based on Gin + Gorm + Dig.",
         "title": "GinAdmin",
         "contact": {
             "name": "LyricTian",
             "email": "tiannianshou@gmail.com"
         },
         "license": {},
-        "version": "5.2.1"
+        "version": "v1.0.0-core"
     },
     "host": "127.0.0.1:10088",
     "basePath": "/",
