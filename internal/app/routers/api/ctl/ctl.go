@@ -12,9 +12,5 @@ import (
 //   })
 func Inject(container *dig.Container) error {
 	_ = container.Provide(NewDemo)
-	_ = container.Provide(NewLogin)
-	_ = container.Provide(NewMenu)
-	_ = container.Provide(NewRole)
-	_ = container.Provide(NewUser)
 	return nil
 }

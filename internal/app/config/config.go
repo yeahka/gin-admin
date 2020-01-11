@@ -45,14 +45,9 @@ type Config struct {
 	Swagger     string      `toml:"swagger"`
 	Store       string      `toml:"store"`
 	HTTP        HTTP        `toml:"http"`
-	Menu        Menu        `toml:"menu"`
-	Casbin      Casbin      `toml:"casbin"`
 	Log         Log         `toml:"log"`
 	LogGormHook LogGormHook `toml:"log_gorm_hook"`
-	Root        Root        `toml:"root"`
-	JWTAuth     JWTAuth     `toml:"jwt_auth"`
 	Monitor     Monitor     `toml:"monitor"`
-	Captcha     Captcha     `toml:"captcha"`
 	RateLimiter RateLimiter `toml:"rate_limiter"`
 	CORS        CORS        `toml:"cors"`
 	Redis       Redis       `toml:"redis"`
@@ -65,21 +60,6 @@ type Config struct {
 // IsDebugMode 是否是debug模式
 func (c *Config) IsDebugMode() bool {
 	return c.RunMode == "debug"
-}
-
-// Menu 菜单配置参数
-type Menu struct {
-	Enable bool   `toml:"enable"`
-	Data   string `toml:"data"`
-}
-
-// Casbin casbin配置参数
-type Casbin struct {
-	Enable           bool   `toml:"enable"`
-	Debug            bool   `toml:"debug"`
-	Model            string `toml:"model"`
-	AutoLoad         bool   `toml:"auto_load"`
-	AutoLoadInternal int    `toml:"auto_load_internal"`
 }
 
 // Log 日志配置参数
@@ -103,24 +83,6 @@ type LogGormHook struct {
 	Table        string `toml:"table"`
 }
 
-// Root root用户
-type Root struct {
-	UserName string `toml:"user_name"`
-	Password string `toml:"password"`
-	RealName string `toml:"real_name"`
-}
-
-// JWTAuth 用户认证
-type JWTAuth struct {
-	SigningMethod string `toml:"signing_method"`
-	SigningKey    string `toml:"signing_key"`
-	Expired       int    `toml:"expired"`
-	Store         string `toml:"store"`
-	FilePath      string `toml:"file_path"`
-	RedisDB       int    `toml:"redis_db"`
-	RedisPrefix   string `toml:"redis_prefix"`
-}
-
 // HTTP http配置参数
 type HTTP struct {
 	Host            string `toml:"host"`
@@ -135,16 +97,6 @@ type Monitor struct {
 	Enable    bool   `toml:"enable"`
 	Addr      string `toml:"addr"`
 	ConfigDir string `toml:"config_dir"`
-}
-
-// Captcha 图形验证码配置参数
-type Captcha struct {
-	Store       string `toml:"store"`
-	Length      int    `toml:"length"`
-	Width       int    `toml:"width"`
-	Height      int    `toml:"height"`
-	RedisDB     int    `toml:"redis_db"`
-	RedisPrefix string `toml:"redis_prefix"`
 }
 
 // RateLimiter 请求频率限制配置参数

@@ -23,26 +23,6 @@ key_file = ""
 # http优雅关闭等待超时时长(单位秒)
 shutdown_timeout = 30
 
-# 菜单配置
-[menu]
-# 使用启用初始化菜单数据
-enable = true
-# 数据文件(json,也可以启动服务时使用-menu指定)
-data = ""
-
-# casbin配置
-[casbin]
-# 是否启用casbin
-enable = true
-# debug模式
-debug = false
-# 模型配置文件(也可以启动服务时使用-m指定)
-model = ""
-# 是否启用定期自动加载策略
-auto_load = false
-# 定期自动加载策略时间间隔（单位秒）
-auto_load_internal = 10
-
 # 日志配置
 [log]
 # 日志级别(1:fatal 2:error,3:warn,4:info,5:debug)
@@ -83,47 +63,6 @@ enable = false
 addr = "127.0.0.1:16060"
 # 配置文件目录(为空则使用默认目录)
 config_dir = ""
-
-# root用户
-[root]
-# 登录用户名
-user_name = "root"
-# 登录密码
-password = "abc-123"
-# 显示的真实姓名
-real_name = "超级管理员"
-
-# 用户认证(jwt)
-[jwt_auth]
-# 签名方式(支持：HS512/HS384/HS512)
-signing_method = "HS512"
-# 签名key
-signing_key = "GINADMIN"
-# 过期时间（单位秒）
-expired = 7200
-# 存储(支持：file/redis)
-store = "file"
-# 文件路径
-file_path = "data/jwt_auth.db"
-# redis数据库(如果存储方式是redis，则指定存储的数据库)
-redis_db = 10
-# 存储到redis数据库中的键名前缀
-redis_prefix = "auth_"
-
-# 图形验证码
-[captcha]
-# 存储方式(支持：memory/redis)
-store = "memory"
-# 数字长度
-length = 4
-# 图片宽度
-width = 300
-# 图片高度
-height = 120
-# redis数据库(如果存储方式是redis，则指定存储的数据库)
-redis_db = 10
-# 存储到redis数据库中的键名前缀
-redis_prefix = "captcha_"
 
 # 请求频率限制(如果redis可用则使用redis，否则使用内存存储)
 [rate_limiter]

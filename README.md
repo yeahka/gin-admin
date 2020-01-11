@@ -1,7 +1,7 @@
-<h1 align="center">Gin Admin</h1>
+<h1 align="center">Gin Admin Core</h1>
 
 <div align="center">
- 基于 Gin + GORM + Casbin + Dig 实现的RBAC权限管理脚手架，目的是提供一套轻量的中后台开发框架，方便、快速的完成业务需求的开发。
+ 基于 Gin + GORM + Dig 实现的开发脚手架，目的是提供一套轻量的中后台开发框架，方便、快速的完成业务需求的开发。
 <br/>
 
 [![ReportCard][reportcard-image]][reportcard-url] [![GoDoc][godoc-image]][godoc-url] [![License][license-image]][license-url]
@@ -11,17 +11,15 @@
 - [在线演示地址](http://gin-admin.tiannianshou.com) (用户名：root，密码：abc-123)（`温馨提醒：为了达到更好的演示效果，这里给出了拥有最高权限的用户，请手下留情，只操作自己新增的数据，不要动平台本身的数据！谢谢！`）
 - [Swagger 文档地址](http://gin-admin.tiannianshou.com/swagger/)
 
-![](https://raw.githubusercontent.com/LyricTian/gin-admin/master/docs/screenshots/swagger.png)
+![](https://raw.githubusercontent.com/LyricTian/gin-admin/core/docs/screenshots/swagger.png)
 
 ## 特性
 
 - 遵循 RESTful API 设计规范
 - 基于 GIN WEB 框架，提供了丰富的中间件支持（用户认证、跨域、访问日志、请求频率限制、追踪 ID 等）
-- 基于 Casbin 的 RBAC 访问控制模型
 - 基于 GORM 的数据库存储(存储层对外采用接口的方式供业务层调用，实现了存储层的完全隔离)
 - 依赖注入(基于[dig](http://go.uber.org/dig))
 - 日志追踪(基于[logrus](https://github.com/sirupsen/logrus)，日志钩子支持 gorm)
-- JWT 认证(基于黑名单的认证模式，存储支持：file/redis)
 - 支持 Swagger 文档(基于[swaggo](https://github.com/swaggo/swag))
 - 单元测试(基于`net/http/httptest`包，覆盖所有接口层的测试)
 
@@ -33,7 +31,7 @@
 
 ```bash
 $ go get -v github.com/LyricTian/gin-admin-cli
-$ gin-admin-cli new -m -d ~/go/src/gin-admin -p gin-admin
+$ gin-admin-cli new -m -c -d ~/go/src/gin-admin -p gin-admin
 ```
 
 ### 使用 air 工具启动服务(推荐)
@@ -52,7 +50,7 @@ $ air
 
 ```bash
 $ cd ~/go/src/gin-admin
-$ go run cmd/server/main.go -c ./configs/config.toml -m ./configs/model.conf -swagger ./docs/swagger -menu ./configs/menu.json
+$ go run cmd/server/main.go -c ./configs/config.toml -swagger ./docs/swagger
 ```
 
 > 启动成功之后，可在浏览器中输入地址访问：[http://127.0.0.1:10088/swagger/](http://127.0.0.1:10088/swagger/)
@@ -83,7 +81,7 @@ $ go get -v github.com/LyricTian/gin-admin/cmd/server
 
 ```bash
 $ cd github.com/LyricTian/gin-admin
-$ go run cmd/server/main.go -c ./configs/config.toml -m ./configs/model.conf -swagger ./docs/swagger -menu ./configs/menu.json
+$ go run cmd/server/main.go -c ./configs/config.toml -swagger ./docs/swagger
 ```
 
 > 启动成功之后，可在浏览器中输入地址访问：[http://127.0.0.1:10088/swagger/](http://127.0.0.1:10088/swagger/)
@@ -92,11 +90,6 @@ $ go run cmd/server/main.go -c ./configs/config.toml -m ./configs/model.conf -sw
 
 1. 默认配置采用的是 sqlite 数据库，数据库文件(`自动生成`)在`data/gadmin.db`。如果想切换为`mysql`或`postgres`，请更改配置文件，并创建数据库（数据库创建脚本在`script`目录下）。
 2. 日志的默认配置为标准输出，如果想切换到写入文件或写入到 gorm 存储，可以自行切换配置。
-
-## 前端实现
-
-- [gin-admin-react](https://github.com/LyricTian/gin-admin-react)：基于[Ant Design React](https://ant.design)的实现版本
-- [gin-admin-react-es6](https://github.com/LyricTian/gin-admin-react/tree/v2.0.0)：基于[Ant Design React](https://ant.design)的实现版本
 
 ## Swagger 文档的使用
 
@@ -149,7 +142,6 @@ $ swag init -g ./internal/app/routers/swagger.go -o ./docs/swagger
 
 - [Gin] - [https://gin-gonic.com/](https://gin-gonic.com/)
 - [GORM] - [http://gorm.io/](http://gorm.io/)
-- [Casbin] - [https://casbin.org/](https://casbin.org/)
 - [Dig] - [http://go.uber.org/dig](http://go.uber.org/dig)
 
 ## 互动交流
@@ -158,11 +150,11 @@ $ swag init -g ./internal/app/routers/swagger.go -o ./docs/swagger
 
 > 该项目是利用业余时间进行开发的，开发思路主要是来源于自己的项目积累及个人思考，如果您有更好的想法和建议请与我进行沟通，我非常期待！下面是我的微信二维码：
 
-<img src="https://raw.githubusercontent.com/LyricTian/gin-admin/master/docs/screenshots/wechat.jpeg" width="256" height="256" />
+<img src="https://raw.githubusercontent.com/LyricTian/gin-admin/core/docs/screenshots/wechat.jpeg" width="256" height="256" />
 
 ### QQ 群：1409099
 
-<img src="https://raw.githubusercontent.com/LyricTian/gin-admin/master/docs/screenshots/qqgroup.jpeg" width="270" height="370" />
+<img src="https://raw.githubusercontent.com/LyricTian/gin-admin/core/docs/screenshots/qqgroup.jpeg" width="270" height="370" />
 
 ## MIT License
 

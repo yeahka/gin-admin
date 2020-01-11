@@ -61,13 +61,6 @@ func AutoMigrate(db *gorm.DB) error {
 
 	return db.AutoMigrate(
 		new(entity.Demo),
-		new(entity.User),
-		new(entity.UserRole),
-		new(entity.Role),
-		new(entity.RoleMenu),
-		new(entity.Menu),
-		new(entity.MenuAction),
-		new(entity.MenuResource),
 	).Error
 }
 
@@ -82,11 +75,5 @@ func Inject(container *dig.Container) error {
 	_ = container.Provide(func(m *imodel.Trans) model.ITrans { return m })
 	_ = container.Provide(imodel.NewDemo)
 	_ = container.Provide(func(m *imodel.Demo) model.IDemo { return m })
-	_ = container.Provide(imodel.NewMenu)
-	_ = container.Provide(func(m *imodel.Menu) model.IMenu { return m })
-	_ = container.Provide(imodel.NewRole)
-	_ = container.Provide(func(m *imodel.Role) model.IRole { return m })
-	_ = container.Provide(imodel.NewUser)
-	_ = container.Provide(func(m *imodel.User) model.IUser { return m })
 	return nil
 }

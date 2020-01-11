@@ -31,8 +31,6 @@ func init() {
 
 	cfg := config.Global()
 	cfg.RunMode = "debug"
-	cfg.Casbin.Enable = true
-	cfg.Casbin.Model = modelFile
 	cfg.Gorm.Debug = false
 	cfg.Gorm.DBType = "sqlite3"
 
